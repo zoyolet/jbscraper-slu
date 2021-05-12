@@ -1,0 +1,28 @@
+h1 {
+    font-size: xx-large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+    margin: 15px;
+    padding: 5px;
+    text-align: center;
+}
+
+div.pricechart {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.ratingchart {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.priceratingscatter {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

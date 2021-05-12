@@ -17,7 +17,7 @@ export default function Login({ history }) {
         const { email, password } = data;
         try {
             await signInWithEmailAndPassword(email, password);
-            history.push('/home');
+            history.push('/search');
         } catch (error) {
             const parsedError = await parseErrorMessage(error);
             setError(parsedError);

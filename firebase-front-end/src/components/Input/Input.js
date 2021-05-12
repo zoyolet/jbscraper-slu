@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
+import './Input.css';
+
 export default function Input({ name, ...rest }) {
     const inputRef = useRef(null);
     const { fieldName, defaultValue, registerField, error } = useField(name);

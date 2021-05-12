@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase/app';
+import './Menu.css'
 
 export default function Menu() {
 
@@ -12,7 +13,7 @@ export default function Menu() {
         <aside>
             <ul>
                 <li>
-                    <Link to="/home">New Search</Link>
+                    <Link to="/search">New Search</Link>
                 </li>
                 {/* <li>
                     <Link to="/dashboard">Dashboard</Link>
