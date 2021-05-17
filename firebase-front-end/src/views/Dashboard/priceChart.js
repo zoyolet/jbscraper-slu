@@ -2,6 +2,7 @@ import React from 'react';
 import Chart from "react-google-charts";
 
 class PriceChart extends React.Component{
+    // console.log(this.props.data)
     render() {
         return (
             <div className = "pricechart">
@@ -17,6 +18,7 @@ class PriceChart extends React.Component{
                         }}
                         rootProps={{'data-testid':'3'}}
                 />
+                
             </div>
         )
     }

@@ -13,6 +13,7 @@ body {
 .textbox {
     font-size: large;
     padding:2px;
+    text-align: center;
 }
 
 button {

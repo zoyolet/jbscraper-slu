@@ -7,15 +7,18 @@ export default function Dash(props) {
     const pricedata = props.location.state.pricedata
     const ratingdata = props.location.state.ratingdata
     const pricerating = props.location.state.pricerating
-    const location = props.location.state.validLoc
+
+    console.log(pricedata)
+    console.log(ratingdata)
+    console.log(pricerating)
 
     return(
         <div className = "dashbody">
-            <div className = "header">
+            {/* <div className = "header">
                 <h1>
                     Showing data for location:  {location}
                 </h1>
-            </div>
+            </div> */}
             <div className = "charts">
                 <PriceChart data={pricedata}/>
                 <RatingChart data={ratingdata}/>

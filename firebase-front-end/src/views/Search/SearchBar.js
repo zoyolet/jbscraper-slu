@@ -15,22 +15,23 @@ export default function SearchBar({history}) {
         if (searchTerm === "") {
             alert ("invalid location")
         } 
-        else if (['austin', 'chicago', 'st. louis'].includes(searchTerm.toLowerCase())) {
-            const validLoc = searchTerm
-            searchLocation()
-            history.push({pathname:'/dash', state:{pricedata, ratingdata, pricerating, validLoc}});
-            console.log(`SearchBar.js has: ${pricedata} ${ratingdata} ${pricerating} ${validLoc}`);
+        else if (['Texas', 'Illinois', 'Missouri'].includes(searchTerm)) {
+            searchLocation(searchTerm);
         } 
         else {
             alert ("see list for valid locations.")
         }
     }
 
+    // change the search term: search for state ("Missouri") in "location" field, instead.
     const searchLocation = () => {
+        alert('hellow?')
         setSearchTerm(searchTerm)
         const ref = firebase.database().ref('properties');
+        alert('can u still hear me?')
+        console.log(`search term is ${searchTerm}`)
 
-        ref.orderByChild("location").equalTo(searchTerm.toLowerCase()).on("value", 
+        ref.orderByChild("state").equalTo(searchTerm).on("value", 
         function(snapshot) {
             snapshot.forEach(function(childSnapshot) {
                 let key = childSnapshot.key
@@ -40,8 +41,8 @@ export default function SearchBar({history}) {
                 ratingdata.push([key, rating]);
                 pricerating.push([price, rating]);
             })
-        }
-        );
+        });
+        history.push({pathname:'/dash', state:{pricedata, ratingdata, pricerating}});
     }
 
     return(
@@ -51,14 +52,15 @@ export default function SearchBar({history}) {
                     JB Scraper
                 </h1>
                 <form>
-                    <input type="text" onChange={(event) => setSearchTerm(event.target.value)} placeholder="Location"/>
+                    <input type="text" onChange={(event) => setSearchTerm(event.target.value)} placeholder="Search a State"/>
                     <button type="submit" onClick={checkValid}>Search</button>
                     <div className = "textbox">
+                        States currently available for search:
                         {JSONDATA.filter((val) => {
                             if (searchTerm === "") {
                                 return val
                             }
-                            else if (val.city.toLowerCase().includes(searchTerm.toLowerCase())) {
+                            else if (val.state.toLowerCase().includes(searchTerm.toLowerCase())) {
                                 return val
                             }
                             else {
@@ -67,7 +69,7 @@ export default function SearchBar({history}) {
                         }).map((val, key) => {
                             return (
                                 <div className="loc" key={key}>
-                                    <p>{val.city}</p>
+                                    <p>-- {val.state}</p>
                                 </div>
                             );
                         })}
