@@ -37,9 +37,9 @@ export default function SearchBar({history}) {
                 let key = childSnapshot.key
                 let price = childSnapshot.val().price
                 let rating = childSnapshot.val().rating
-                pricedata.push([key, price]);
-                ratingdata.push([key, rating]);
-                pricerating.push([price, rating]);
+                pricedata.push([key, parseFloat(price)]);
+                ratingdata.push([key, parseFloat(rating)]);
+                pricerating.push([price, parseFloat(rating)]);
             })
         });
         history.push({pathname:'/dash', state:{pricedata, ratingdata, pricerating}});
