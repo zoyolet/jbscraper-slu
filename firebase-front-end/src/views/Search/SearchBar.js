@@ -25,10 +25,8 @@ export default function SearchBar({history}) {
 
     // change the search term: search for state ("Missouri") in "location" field, instead.
     const searchLocation = () => {
-        alert('hellow?')
         setSearchTerm(searchTerm)
         const ref = firebase.database().ref('properties');
-        alert('can u still hear me?')
         console.log(`search term is ${searchTerm}`)
 
         ref.orderByChild("state").equalTo(searchTerm).on("value", 
